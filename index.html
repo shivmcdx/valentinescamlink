@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+  body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Arial, sans-serif;
+  }
+
+  .card{
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    width:340px;
+    height:300px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    overflow:hidden;
+  }
+
+  h2{
+    margin-bottom:50px;
+  }
+
+  button{
+    padding:10px 22px;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    cursor:pointer;
+    position:absolute;
+    transition:0.15s;
+  }
+
+  #yesBtn{
+    background:#ff4d6d;
+    color:white;
+    left:80px;
+    bottom:40px;
+  }
+
+  #noBtn{
+    background:#ddd;
+    color:black;
+    right:80px;
+    bottom:40px;
+  }
+
+  .yay{
+    display:none;
+  }
+
+  .yay img{
+    width:220px;
+    border-radius:12px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h2>Will you be my Valentine? 💖</h2>
+
+  <button id="yesBtn">Yes</button>
+  <button id="noBtn">No</button>
+
+  <div class="yay" id="yay">
+    <h2>YAYYYYY 🎉</h2>
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+  </div>
+</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const card = document.getElementById("card");
+  const yay = document.getElementById("yay");
+
+  function moveNoButton(){
+    const maxX = card.clientWidth - noBtn.clientWidth;
+    const maxY = card.clientHeight - noBtn.clientHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  noBtn.addEventListener("mouseover", moveNoButton);
+  noBtn.addEventListener("click", moveNoButton);
+
+  yesBtn.addEventListener("click", ()=>{
+    card.innerHTML = "";
+    yay.style.display = "block";
+    card.appendChild(yay);
+  });
+</script>
+
+</body>
+</html>
